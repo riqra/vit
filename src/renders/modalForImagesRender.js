@@ -1,19 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import ModalForImages from "../components/ModalForImages";
+import Render from './Render';
 
-const modalForImagesRender = (id) => {
+const ModalForImagesRender = (id) => {
   const elem = document.getElementById(id);
-  const root = ReactDOM.createRoot(elem);
-  root.render(
-    <React.StrictMode>
-      <ModalForImages
-        image={elem.dataset.image}
-        imageWidth={elem.dataset.imageWidth}
-        link={elem.dataset.link}
-        linkTarget={elem.dataset.linkTarget} />
-    </React.StrictMode>
+  Render(
+    elem,
+    <ModalForImages
+      id={id}
+      image={elem.dataset.image}
+      imageWidth={elem.dataset.imageWidth}
+      link={elem.dataset.link}
+      linkTarget={elem.dataset.linkTarget}
+      showAgainInXHours={elem.dataset.showAgainInXHours}
+    />
   );
 }
 
-export default modalForImagesRender;
+export default ModalForImagesRender;
