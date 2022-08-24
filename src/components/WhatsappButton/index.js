@@ -6,7 +6,7 @@ const WhatsappButton = (props) => {
   const { number, text } = props;
 
   if (!number) {
-    return (<div></div>)
+    return;
   }
 
   let link = "https://wa.me/" + number;
