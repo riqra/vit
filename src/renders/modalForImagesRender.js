@@ -1,3 +1,4 @@
+import React from 'react';
 import ModalForImages from "../components/ModalForImages";
 import Render from './Render';
 
