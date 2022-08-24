@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+# Given that Google Tag Manager is using the build, /build folder is pushed to main. 
+# /build
 
 # misc
 .DS_Store
