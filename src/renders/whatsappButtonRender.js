@@ -1,7 +1,7 @@
 import WhatsappButton from "../components/WhatsappButton";
 import Render from './Render';
 
-const whatsappButtonRender = (id) => {
+const WhatsappButtonRender = (id) => {
   const elem = document.getElementById(id);
   Render(
     elem,
@@ -9,4 +9,4 @@ const whatsappButtonRender = (id) => {
   );
 }
 
-export default whatsappButtonRender;
+export default WhatsappButtonRender;
