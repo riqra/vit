@@ -1,8 +1,11 @@
 import reportWebVitals from './reportWebVitals';
-import vit from "./vit";
+import WhatsappButtonRender from './renders/WhatsappButtonRender';
+import ModalForImagesRender from './renders/ModalForImagesRender';
 
-window.__VIT__ = vit;
-window.vit = vit; //this is supported until September 30th 2022
+export {
+  WhatsappButtonRender as whatsappButton,
+  ModalForImagesRender as modalForImages
+};
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
