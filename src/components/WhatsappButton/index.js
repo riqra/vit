@@ -3,17 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 const WhatsappButton = (props) => {
-
   const { number, text } = props;
 
-  let link = '#/';
+  if (!number) {
+    return (<div></div>)
+  }
 
-  if (number) {
-    link = "https://wa.me/" + number;
+  let link = "https://wa.me/" + number;
 
-    if (text) {
-      link += '?text=' + text;
-    }
+  if (text) {
+    link += '?text=' + text;
   }
 
   return (
