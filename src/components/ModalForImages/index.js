@@ -33,6 +33,8 @@ class ModalForImages extends React.Component {
       return;
     }
 
+    cookie.set(this.cookieName, true, this.showAgainInXHours);
+
     let picture = <img className="vit-modal__image" src={this.image} style={{ width: this.imageWidth }} alt="Anuncio" />
 
     if (this.link) {
@@ -42,8 +44,6 @@ class ModalForImages extends React.Component {
         </a>
       )
     }
-
-    cookie.set(this.cookieName, true, this.showAgainInXHours);
 
     return (
       <div id="vit-modal" className="vit-modal" style={{ display: this.state.hide ? 'none' : 'block' }}>
