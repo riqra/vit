@@ -1,8 +1,8 @@
-import whatsappButtonRender from './renders/whatsappButtonRender';
-import modalForImagesRender from './renders/modalForImagesRender';
+import WhatsappButtonRender from './renders/WhatsappButtonRender';
+import ModalForImagesRender from './renders/ModalForImagesRender';
 
 const vit = {};
-vit.whatsappButton = whatsappButtonRender;
-vit.modalForImages = modalForImagesRender;
+vit.whatsappButton = WhatsappButtonRender;
+vit.modalForImages = ModalForImagesRender;
 
 export default vit;
