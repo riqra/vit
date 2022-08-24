@@ -1,3 +1,4 @@
+import React from 'react';
 import WhatsappButton from "../components/WhatsappButton";
 import Render from './Render';
 
