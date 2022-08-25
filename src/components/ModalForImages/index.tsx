@@ -1,45 +1,54 @@
 import React from 'react'
 import './index.css'
 import cookie from '../../utils/cookie';
+import iModalForImages from '../../contracts/iModalForImages';
 
-class ModalForImages extends React.Component {
+interface iState {
+  hide: boolean
+}
 
-  constructor(props) {
+class ModalForImages extends React.Component<iModalForImages, iState>{
+
+  constructor(props: iModalForImages) {
     super(props);
-    this.id = props.id;
-    this.image = props.image;
-    this.link = props.link;
-    this.imageWidth = props.imageWidth || '450px';
-    this.linkTarget = props.linkTarget || '_self';
-    this.showAgainInXHours = isNaN(+props.showAgainInXHours) ? 0 : +props.showAgainInXHours;
-    this.cookieName = '__VIT_MODAL_FOR_IMAGES__' + this.id;
     this.state = {
       hide: false
     };
   }
 
-  onClick = (e) => {
+  onClick = () => {
     this.setState({
       hide: true
     });
   }
 
   render() {
-    if (!this.image) {
+    const {
+      id,
+      image,
+      link,
+      imageWidth = '450px',
+      linkTarget = '_self',
+      showAgainInXHours = 0
+    } = this.props;
+
+    const cookieName = '__VIT_MODAL_FOR_IMAGES__' + id;
+
+    if (!image) {
       return;
     }
 
-    if (cookie.get(this.cookieName)) {
+    if (cookie.get(cookieName)) {
       return;
     }
 
-    cookie.set(this.cookieName, true, this.showAgainInXHours);
+    cookie.set(cookieName, true, showAgainInXHours);
 
-    let picture = <img className="vit-modal__image" src={this.image} style={{ width: this.imageWidth }} alt="Anuncio" />
+    let picture = <img className="vit-modal__image" src={image} style={{ width: imageWidth }} alt="Anuncio" />
 
-    if (this.link) {
+    if (link) {
       picture = (
-        <a className="vit-modal__link" href={this.link} target={this.linkTarget}>
+        <a className="vit-modal__link" href={link} target={linkTarget}>
           {picture}
         </a>
       )
