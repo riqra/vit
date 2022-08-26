@@ -5,7 +5,7 @@ const WhatsappButtonRender = (id: string) => {
   const elem = document.getElementById(id);
   Render(
     elem!,
-    <WhatsappButton number={elem!.dataset.number!} text={elem!.dataset.text} />
+    <WhatsappButton id={id} number={elem!.dataset.number!} text={elem!.dataset.text} />
   );
 }
 
