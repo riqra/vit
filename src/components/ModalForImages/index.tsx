@@ -1,7 +1,14 @@
 import React from 'react'
-import './index.css'
-import cookie from '../../utils/cookie';
 import iModalForImages from '../../contracts/iModalForImages';
+import Modal from '../Modal';
+
+const style: any = {
+  image: {
+    maxWidth: '100%',
+    height: 'auto',
+    display: 'block'
+  }
+}
 
 interface iState {
   hide: boolean
@@ -32,39 +39,24 @@ class ModalForImages extends React.Component<iModalForImages, iState>{
       showAgainInXHours = 0
     } = this.props;
 
-    const cookieName = '__VIT_MODAL_FOR_IMAGES__' + id;
-
     if (!image) {
       return;
     }
 
-    if (cookie.get(cookieName)) {
-      return;
-    }
+    style.image.width = imageWidth;
 
-    cookie.set(cookieName, true, showAgainInXHours);
-
-    let picture = <img className="vit-modal__image" src={image} style={{ width: imageWidth }} alt="Anuncio" />
+    let picture = <img style={style.image} src={image} alt="Anuncio" />
 
     if (link) {
       picture = (
-        <a className="vit-modal__link" href={link} target={linkTarget}>
+        <a href={link} target={linkTarget}>
           {picture}
         </a>
       )
     }
 
     return (
-      <div id="vit-modal" className="vit-modal" style={{ display: this.state.hide ? 'none' : 'block' }}>
-        <div className="vit-modal__backdrop" onClick={this.onClick}>
-          <div className="vit-modal__content" onClick={e => e.stopPropagation()}>
-            <div className="vit-modal__btn-close" onClick={this.onClick}>&times;</div>
-            <div className="vit-modal__body">
-              {picture}
-            </div>
-          </div>
-        </div>
-      </div>
+      <Modal id={id} showAgainInXHours={showAgainInXHours} content={picture} />
     );
   }
 }
