@@ -1,7 +1,20 @@
 import React from 'react'
-import './index.css'
 import cookie from '../../utils/cookie';
-import iModalForImages from '../../contracts/iModalForImages';
+import {
+  Backdrop,
+  Content,
+  CloseBtn,
+  Image
+} from './style';
+
+interface iModalForImages {
+  id: string,
+  image: string,
+  link?: string,
+  imageWidth?: string,
+  linkTarget?: string,
+  showAgainInXHours?: number
+}
 
 interface iState {
   hide: boolean
@@ -44,7 +57,7 @@ class ModalForImages extends React.Component<iModalForImages, iState>{
 
     cookie.set(cookieName, true, showAgainInXHours);
 
-    let picture = <img className="vit-modal__image" src={image} style={{ width: imageWidth }} alt="Anuncio" />
+    let picture = <Image className="vit-modal__image" src={image} style={{ width: imageWidth }} alt="Anuncio" />
 
     if (link) {
       picture = (
@@ -56,14 +69,14 @@ class ModalForImages extends React.Component<iModalForImages, iState>{
 
     return (
       <div id="vit-modal" className="vit-modal" style={{ display: this.state.hide ? 'none' : 'block' }}>
-        <div className="vit-modal__backdrop" onClick={this.onClick}>
-          <div className="vit-modal__content" onClick={e => e.stopPropagation()}>
-            <div className="vit-modal__btn-close" onClick={this.onClick}>&times;</div>
-            <div className="vit-modal__body">
+        <Backdrop onClick={this.onClick}>
+          <Content onClick={e => e.stopPropagation()}>
+            <CloseBtn onClick={this.onClick}>&times;</CloseBtn>
+            <div>
               {picture}
             </div>
-          </div>
-        </div>
+          </Content>
+        </Backdrop>
       </div>
     );
   }
