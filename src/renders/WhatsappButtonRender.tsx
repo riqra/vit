@@ -1,12 +1,15 @@
-import WhatsappButton from "../components/WhatsappButton";
+import WhatsappButton, { iWhatsappButton } from "../components/WhatsappButton";
 import Render from './Render';
 
-const WhatsappButtonRender = (id: string) => {
-  const elem = document.getElementById(id);
+const WhatsappButtonRender = (params: iWhatsappButton) => {
+  if (!params.id) {
+    return;
+  }
+
   Render(
-    elem!,
-    <WhatsappButton number={elem!.dataset.number!} text={elem!.dataset.text} />
-  );
+    params.id,
+    <WhatsappButton id={params.id} number={params.number} text={params.text} />
+  )
 }
 
 export default WhatsappButtonRender;

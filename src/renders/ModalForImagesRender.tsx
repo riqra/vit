@@ -1,17 +1,20 @@
-import ModalForImages from "../components/ModalForImages";
+import ModalForImages, { iModalForImages } from "../components/ModalForImages";
 import Render from './Render';
 
-const ModalForImagesRender = (id: string) => {
-  const elem = document.getElementById(id);
+const ModalForImagesRender = (params: iModalForImages) => {
+  if (!params.id) {
+    return;
+  }
+
   Render(
-    elem!,
+    params.id,
     <ModalForImages
-      id={id}
-      image={elem!.dataset.image!}
-      imageWidth={elem!.dataset.imageWidth}
-      link={elem!.dataset.link}
-      linkTarget={elem!.dataset.linkTarget}
-      showAgainInXHours={+elem!.dataset.showAgainInXHours!}
+      id={params.id}
+      image={params.image}
+      imageWidth={params.imageWidth}
+      link={params.link}
+      linkTarget={params.linkTarget}
+      showAgainInXHours={params.showAgainInXHours}
     />
   );
 }
