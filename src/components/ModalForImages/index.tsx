@@ -83,3 +83,4 @@ class ModalForImages extends React.Component<iModalForImages, iState>{
 }
 
 export default ModalForImages;
+export type { iModalForImages };

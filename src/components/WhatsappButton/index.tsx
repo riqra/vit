@@ -4,6 +4,7 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { Button, Link, Icon } from './style';
 
 interface iWhatsappButton {
+  id: string
   number: string,
   text?: string
 }
@@ -35,3 +36,4 @@ class WhatsappButton extends React.Component<iWhatsappButton> {
 }
 
 export default WhatsappButton;
+export type { iWhatsappButton };
