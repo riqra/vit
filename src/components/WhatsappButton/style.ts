@@ -28,6 +28,7 @@ const Link = styled.a`
 const Icon = styled.div`
   margin-top: 4px;
   font-size: 30px;
+  font-family: FontAwesome !important;
 
   @media only screen and (min-width: ${globalStyle.breakpoint.lg}) {
     font-size: 39px;
