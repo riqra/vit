@@ -68,7 +68,7 @@ class ModalForImages extends React.Component<iModalForImages, iState>{
     }
 
     return (
-      <div id="vit-modal" className="vit-modal" style={{ display: this.state.hide ? 'none' : 'block' }}>
+      <div style={{ display: this.state.hide ? 'none' : 'block' }}>
         <Backdrop onClick={this.onClick}>
           <Content onClick={e => e.stopPropagation()}>
             <CloseBtn onClick={this.onClick}>&times;</CloseBtn>

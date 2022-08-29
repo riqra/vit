@@ -23,7 +23,7 @@ class WhatsappButton extends React.Component<iWhatsappButton> {
     }
 
     return (
-      <Button id="vit-whatsapp-button">
+      <Button>
         <Link href={link} target="_blank" rel="noreferrer">
           <Icon>
             <FontAwesomeIcon icon={faWhatsapp} />
