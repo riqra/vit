@@ -38,14 +38,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  <div id="abc" data-number="51987654321" data-text="Hola, deseo información..."></div>
-  <div id="aviso-home"
-    data-image="https://static.vecteezy.com/system/resources/previews/001/204/727/original/pencil-png.png"
-    data-image-width="600px" data-show-again-in-x-hours=0.008></div>
   <script>
     setTimeout(function () {
-      __VIT__.whatsappButton('abc');
-      __VIT__.modalForImages('aviso-home');
+      __VIT__.whatsappButton({
+        id: 'whatsapp-button',
+        number: '51987654321',
+        text: 'Hola, deseo información'
+      });
+      __VIT__.modalForImages({
+        id: 'aviso-home',
+        image: 'https://static.vecteezy.com/system/resources/previews/001/204/727/original/pencil-png.png',
+        imageWidth: '600px',
+        showAgainInXHours: 0.008
+      });
     }, 2000);
   </script>
 </body>
