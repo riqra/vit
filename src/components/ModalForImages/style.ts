@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const Container = styled.div < { shouldHide: boolean } >`
+  display: ${props => props.shouldHide ? 'none' : 'block'};
+`;
+
 const Backdrop = styled.div`
   position: fixed;
   display: flex;
@@ -42,9 +46,11 @@ const CloseBtn = styled.div`
 const Image = styled.img`
   max-width: 100%;
   height: auto;
+  width: ${props => props.width};
 `;
 
 export {
+  Container,
   Backdrop,
   Content,
   CloseBtn,
