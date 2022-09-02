@@ -1,6 +1,6 @@
 import ProgressBar from "../../base/ProgressBar";
 import Snackbar from "../../base/Snackbar";
-import { iFreeShippingProgressBarInSnackbar } from "./contract";
+import { iFreeShippingProgressBarInSnackbar } from "./contracts";
 import { Container, Text } from './styles';
 
 const FreeShippingProgressBarInSnackbar = ({
