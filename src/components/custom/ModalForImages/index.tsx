@@ -32,7 +32,7 @@ const ModalForImages = ({
     if (!cookie.get(cookieName)) {
       setShow(true);
     }
-  }, [showAgainInXHours, cookieName])
+  }, [cookieName])
 
   let picture = <Image src={image} width={imageWidth} alt="Anuncio" />
 
