@@ -22,7 +22,7 @@ const Button = styled.div`
 `;
 
 const Link = styled.a`
-  color: ${globalStyle.color.grayscale.white};
+  color: ${globalStyle.palette.grayscale.white};
 `;
 
 const Icon = styled.div`
