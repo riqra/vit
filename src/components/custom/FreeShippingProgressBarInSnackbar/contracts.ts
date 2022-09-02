@@ -4,8 +4,8 @@ interface iFreeShippingProgressBarInSnackbar {
   minCartValueForFreeShipping: number,
   currencySymbol: string,
   autoHideDuration: number,
-  progressBarColor: string,
-  progressBarBackgroundColor: string
+  progressBarColor?: string,
+  progressBarBackgroundColor?: string
 }
 
 export type { iFreeShippingProgressBarInSnackbar }
