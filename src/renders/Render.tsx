@@ -1,5 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createGlobalStyle } from 'styled-components';
+import style from '../globals/style';
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: ${style.typography.fontFamily};
+    font-weight: 400; 
+  }
+`;
 
 const Render = (id: string, component: JSX.Element) => {
   let elem = document.getElementById('__VIT_PLUGIN__' + id);
@@ -15,6 +26,7 @@ const Render = (id: string, component: JSX.Element) => {
   const root = ReactDOM.createRoot(elem);
   root.render(
     <React.StrictMode>
+      <GlobalStyle />
       {component}
     </React.StrictMode>
   );
