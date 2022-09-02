@@ -19,21 +19,20 @@ const ModalForImages = ({
 }: iModalForImages) => {
   const [show, setShow] = useState(false);
 
-  const onClick = () => setShow(false);
+  const cookieName = '__VIT_MODAL_FOR_IMAGES__' + id;
+
+  const onClick = () => {
+    setShow(false);
+    if (!cookie.get(cookieName)) {
+      cookie.set(cookieName, true, showAgainInXHours);
+    }
+  };
 
   useEffect(() => {
-    const cookieName = '__VIT_MODAL_FOR_IMAGES__' + id;
-
     if (!cookie.get(cookieName)) {
       setShow(true);
     }
-
-    return () => {
-      if (!cookie.get(cookieName)) {
-        cookie.set(cookieName, true, showAgainInXHours);
-      }
-    }
-  }, [id, showAgainInXHours])
+  }, [showAgainInXHours, cookieName])
 
   let picture = <Image src={image} width={imageWidth} alt="Anuncio" />
 
