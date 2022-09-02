@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
   <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -51,6 +52,14 @@
         imageWidth: '600px',
         //link: 'https://www.google.com',
         // showAgainInXHours: 0.008
+      });
+      __VIT__.freeShippingProgressBarInSnackbar({
+        id: 'snack-bar',
+        currencySymbol: 'S/',
+        minCartValueForFreeShipping: 100,
+        cartValue: 80,
+        autoHideDuration: 1000,
+        progressBarColor: '#33CC33'
       });
     }, 2000);
   </script>
