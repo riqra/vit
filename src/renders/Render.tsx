@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Render = (id: string, component: JSX.Element) => {
+  if (!id) {
+    return;
+  }
+
   let elem = document.getElementById('__VIT_PLUGIN__' + id);
 
   if (elem) {

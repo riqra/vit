@@ -1,15 +1,9 @@
-import WhatsappButton, { iWhatsappButton } from "../components/WhatsappButton";
+import WhatsappButton from "../components/custom/WhatsappButton";
+import { iWhatsappButton } from "../components/custom/WhatsappButton/contracts";
 import Render from './Render';
 
-const WhatsappButtonRender = (params: iWhatsappButton) => {
-  if (!params.id) {
-    return;
-  }
-
-  Render(
-    params.id,
-    <WhatsappButton id={params.id} number={params.number} text={params.text} />
-  )
+const WhatsappButtonRender = (props: iWhatsappButton) => {
+  Render(props.id, <WhatsappButton {...props} />)
 }
 
 export default WhatsappButtonRender;

@@ -1,22 +1,9 @@
-import ModalForImages, { iModalForImages } from "../components/ModalForImages";
+import ModalForImages from "../components/custom/ModalForImages";
+import { iModalForImages } from "../components/custom/ModalForImages/contracts";
 import Render from './Render';
 
-const ModalForImagesRender = (params: iModalForImages) => {
-  if (!params.id) {
-    return;
-  }
-
-  Render(
-    params.id,
-    <ModalForImages
-      id={params.id}
-      image={params.image}
-      imageWidth={params.imageWidth}
-      link={params.link}
-      linkTarget={params.linkTarget}
-      showAgainInXHours={params.showAgainInXHours}
-    />
-  );
+const ModalForImagesRender = (props: iModalForImages) => {
+  Render(props.id, <ModalForImages {...props} />);
 }
 
 export default ModalForImagesRender;
