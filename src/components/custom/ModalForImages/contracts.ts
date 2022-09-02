@@ -7,11 +7,6 @@ interface iModalForImages {
   showAgainInXHours?: number
 }
 
-interface iState {
-  shouldHide: boolean
-}
-
 export type {
-  iModalForImages,
-  iState
+  iModalForImages
 }
