@@ -1,10 +1,12 @@
 import reportWebVitals from './reportWebVitals';
 import WhatsappButtonRender from './renders/WhatsappButtonRender';
 import ModalForImagesRender from './renders/ModalForImagesRender';
+import FreeShippingProgressBarInSnackbarRender from './renders/FreeShippingProgressBarInSnackbarRender';
 
 export {
   WhatsappButtonRender as whatsappButton,
-  ModalForImagesRender as modalForImages
+  ModalForImagesRender as modalForImages,
+  FreeShippingProgressBarInSnackbarRender as freeShippingProgressBarInSnackbar
 };
 
 // If you want to start measuring performance in your app, pass a function
