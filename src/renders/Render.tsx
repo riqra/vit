@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Render = (id: string, component: JSX.Element) => {
+const render = (id: string, component: JSX.Element) => {
   if (!id) {
     return;
   }
@@ -36,4 +36,4 @@ const Render = (id: string, component: JSX.Element) => {
   );
 }
 
-export default Render;
+export default render;
