@@ -1,6 +1,6 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import cookie from '../../../utils/cookie';
-import { iModalForImages, iState } from './contracts';
+import { iModalForImages } from './contracts';
 import {
   Container,
   Backdrop,
@@ -9,72 +9,55 @@ import {
   Image
 } from './styles';
 
-class ModalForImages extends React.Component<iModalForImages, iState>{
+const ModalForImages = ({
+  id,
+  image = 'https://res.cloudinary.com/riqra/image/upload/h_380,c_limit,q_auto,f_auto/v1534706090/saas/resources/placeholders/product.png',
+  link,
+  imageWidth = '450px',
+  linkTarget = '_self',
+  showAgainInXHours = 0
+}: iModalForImages) => {
+  const [show, setShow] = useState(false);
 
-  constructor(props: iModalForImages) {
-    super(props);
-    this.state = {
-      shouldHide: false
-    };
-  }
+  const onClick = () => setShow(false);
 
-  static defaultProps: Partial<iModalForImages> = {
-    imageWidth: '450px',
-    linkTarget: '_self',
-    showAgainInXHours: 0
-  }
-
-  onClick = () => {
-    this.setState({
-      shouldHide: true
-    });
-  }
-
-  render() {
-    const {
-      id,
-      image,
-      link,
-      imageWidth,
-      linkTarget,
-      showAgainInXHours = 0
-    } = this.props;
-
+  useEffect(() => {
     const cookieName = '__VIT_MODAL_FOR_IMAGES__' + id;
 
-    if (!image) {
-      return;
+    if (!cookie.get(cookieName)) {
+      setShow(true);
     }
 
-    if (cookie.get(cookieName)) {
-      return;
+    return () => {
+      if (!cookie.get(cookieName)) {
+        cookie.set(cookieName, true, showAgainInXHours);
+      }
     }
+  }, [id, showAgainInXHours])
 
-    cookie.set(cookieName, true, showAgainInXHours);
+  let picture = <Image src={image} width={imageWidth} alt="Anuncio" />
 
-    let picture = <Image src={image} width={imageWidth} alt="Anuncio" />
-
-    if (link) {
-      picture = (
-        <a href={link} target={linkTarget}>
-          {picture}
-        </a>
-      )
-    }
-
-    return (
-      <Container shouldHide={this.state.shouldHide}>
-        <Backdrop onClick={this.onClick}>
-          <Content onClick={e => e.stopPropagation()}>
-            <CloseBtn onClick={this.onClick}>&times;</CloseBtn>
-            <div>
-              {picture}
-            </div>
-          </Content>
-        </Backdrop>
-      </Container>
-    );
+  if (link) {
+    picture = (
+      <a href={link} target={linkTarget}>
+        {picture}
+      </a>
+    )
   }
+
+  return (
+    <Container show={show}>
+      <Backdrop onClick={onClick}>
+        <Content onClick={e => e.stopPropagation()}>
+          <CloseBtn onClick={onClick}>&times;</CloseBtn>
+          <div>
+            {picture}
+          </div>
+        </Content>
+      </Backdrop>
+    </Container>
+  );
+
 }
 
 export default ModalForImages;
