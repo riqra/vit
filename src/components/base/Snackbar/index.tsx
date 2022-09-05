@@ -14,8 +14,12 @@ const Snackbar = ({
     return () => clearTimeout(timer);
   })
 
+  if (!show) {
+    return <></>
+  }
+
   return (
-    <Container show={show}>
+    <Container>
       <Content>
         {children}
       </Content>
