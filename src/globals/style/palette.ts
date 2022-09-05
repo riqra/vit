@@ -1,3 +1,5 @@
+import hexAlpha from "../../utils/hexAlpha"
+
 const primary = {
   c10: '#E5EEFF',
   c20: '#CCDDFF',
@@ -49,12 +51,13 @@ const grayscale = {
   c60: '#A0A4A8',
   c70: '#52575C',
   c80: '#25282B',
+  black: '#000000',
   get white() { return this.c10 },
-  get black() { return this.c80 },
+  get veryDark() { return this.c80 },
   get mainText() { return this.c80 },
   get secondaryText() { return this.c70 },
   get inactiveText() { return this.c60 },
-  get darkBackground() { return this.c50 },
+  get darkBackground() { return hexAlpha(this.black, 0.3) },
   get disableState() { return this.c40 },
   get background() { return this.c30 },
 }
