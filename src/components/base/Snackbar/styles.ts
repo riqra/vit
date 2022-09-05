@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import style from "../../../globals/style";
 
-const Container = styled.div<{ show: boolean }>`
-  display: ${props => props.show ? 'flex' : 'none'};
+const Container = styled.div`
+  display: flex;
   z-index: ${style.zIndex.snackbar};
   position: fixed;
   left: ${style.spacing.s8};

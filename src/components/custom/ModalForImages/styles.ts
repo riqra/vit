@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const Container = styled.div < { show: boolean } >`
-  display: ${props => props.show ? 'block' : 'none'};
+const Container = styled.div`
+  display: block;
 `;
 
 const Backdrop = styled.div`
