@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import cookie from '../../../utils/cookie';
+import Backdrop from '../../base/Backdrop';
 import { iModalForImages } from './contracts';
 import {
   Container,
-  Backdrop,
   Content,
   CloseBtn,
   Image
@@ -34,6 +34,10 @@ const ModalForImages = ({
     }
   }, [cookieName])
 
+  if (!show) {
+    return <></>
+  }
+
   let picture = <Image src={image} width={imageWidth} alt="Anuncio" />
 
   if (link) {
@@ -45,16 +49,16 @@ const ModalForImages = ({
   }
 
   return (
-    <Container show={show}>
-      <Backdrop onClick={onClick}>
+    <Backdrop show={true} onClick={onClick}>
+      <Container>
         <Content onClick={e => e.stopPropagation()}>
           <CloseBtn onClick={onClick}>&times;</CloseBtn>
           <div>
             {picture}
           </div>
         </Content>
-      </Backdrop>
-    </Container>
+      </Container>
+    </Backdrop>
   );
 
 }
