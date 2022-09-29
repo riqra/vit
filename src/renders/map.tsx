@@ -1,9 +1,9 @@
-import ModalForImages from "../components/custom/ModalForImages";
-import { iModalForImages } from "../components/custom/ModalForImages/contracts";
-import FreeShippingProgressBarInSnackbar from "../components/custom/FreeShippingProgressBarInSnackbar";
-import { iFreeShippingProgressBarInSnackbar } from "../components/custom/FreeShippingProgressBarInSnackbar/contracts";
-import WhatsappButton from "../components/custom/WhatsappButton";
-import { iWhatsappButton } from "../components/custom/WhatsappButton/contracts";
+import ModalForImages from "../components/exportable/ModalForImages";
+import { iModalForImages } from "../components/exportable/ModalForImages/contracts";
+import FreeShippingProgressBarInSnackbar from "../components/exportable/FreeShippingProgressBarInSnackbar";
+import { iFreeShippingProgressBarInSnackbar } from "../components/exportable/FreeShippingProgressBarInSnackbar/contracts";
+import WhatsappButton from "../components/exportable/WhatsappButton";
+import { iWhatsappButton } from "../components/exportable/WhatsappButton/contracts";
 import render from "./render";
 
 const whatsappButton = (props: iWhatsappButton) => render(props.id, <WhatsappButton {...props} />);
