@@ -10,11 +10,12 @@ const whatsappButton = (props: iWhatsappButton) => render(props.id, <WhatsappBut
 
 const modalForImages = (props: iModalForImages) => render(props.id, <ModalForImages {...props} />);
 
+// eslint-disable-next-line
 const freeShippingProgressBarInSnackbar = (props: iFreeShippingProgressBarInSnackbar) =>
   render(props.id, <FreeShippingProgressBarInSnackbar {...props} />);
 
 export {
   whatsappButton,
   modalForImages,
-  freeShippingProgressBarInSnackbar
+  //freeShippingProgressBarInSnackbar
 }
