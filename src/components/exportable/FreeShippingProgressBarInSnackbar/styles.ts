@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import style from "../../../globals/style";
 
-const Container = styled.div`
-   flex-grow: 1;
-`;
+const Content = styled.div`
+  flex-grow: 1;
+`
 
 const Text = styled.div`
   color: ${style.palette.grayscale.white};
@@ -11,6 +11,6 @@ const Text = styled.div`
 `;
 
 export {
-  Container,
+  Content,
   Text
 };

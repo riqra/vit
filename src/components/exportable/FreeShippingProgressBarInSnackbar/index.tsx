@@ -1,7 +1,7 @@
-import ProgressBar from "../../base/ProgressBar";
-import Snackbar from "../../base/Snackbar";
+import ProgressBar from "../../_atoms/ProgressBar";
+import Snackbar from "../../_molecules/Snackbar";
 import { iFreeShippingProgressBarInSnackbar } from "./contracts";
-import { Container, Text } from './styles';
+import { Content, Text } from './styles';
 
 const FreeShippingProgressBarInSnackbar = ({
   id,
@@ -13,8 +13,8 @@ const FreeShippingProgressBarInSnackbar = ({
   progressBarBackgroundColor,
 }: iFreeShippingProgressBarInSnackbar) => {
   return (
-    <Snackbar autoHideDuration={autoHideDuration}>
-      <Container>
+    <Snackbar autoHideDuration={autoHideDuration} defaultPosition={true}>
+      <Content>
         <Text>¡Solo te faltan {currencySymbol}{minCartValueForFreeShipping - cartValue} para tener delivery gratis!</Text>
         <ProgressBar
           value={cartValue}
@@ -22,7 +22,7 @@ const FreeShippingProgressBarInSnackbar = ({
           color={progressBarColor}
           backgroundColor={progressBarBackgroundColor}
         />
-      </Container>
+      </Content>
     </Snackbar>
   )
 }

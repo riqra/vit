@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Container, Content } from './styles';
+import { Container, PositionContainer } from './styles';
 import { iSnackbar } from "./contracts";
 
 const Snackbar = ({
   autoHideDuration = 5,
-  children
+  defaultPosition = false,
+  children,
 }: iSnackbar) => {
   const [show, setShow] = useState(true);
 
@@ -18,13 +19,21 @@ const Snackbar = ({
     return <></>
   }
 
-  return (
+  let snackbar = (
     <Container>
-      <Content>
-        {children}
-      </Content>
+      {children}
     </Container>
   )
+
+  if (defaultPosition) {
+    snackbar = (
+      <PositionContainer>
+        {snackbar}
+      </PositionContainer>
+    )
+  }
+
+  return snackbar;
 }
 
 export default Snackbar;

@@ -1,5 +1,6 @@
 interface iSnackbar {
   autoHideDuration?: number,
+  defaultPosition?: boolean,
   children: JSX.Element
 }
 

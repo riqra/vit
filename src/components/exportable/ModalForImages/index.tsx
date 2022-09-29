@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import cookie from '../../../utils/cookie';
-import Backdrop from '../../base/Backdrop';
+import Backdrop from '../../_atoms/Backdrop';
 import { iModalForImages } from './contracts';
 import {
   Container,
