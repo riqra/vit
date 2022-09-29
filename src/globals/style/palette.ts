@@ -62,13 +62,18 @@ const grayscale = {
   get background() { return this.c30 },
 }
 
+const custom = {
+  whatsapp: '#25d366'
+}
+
 const color = {
   primary,
   secondary,
   warning,
   success,
   error,
-  grayscale
+  grayscale,
+  custom
 }
 
 export default color;
