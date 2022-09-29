@@ -1,16 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createGlobalStyle } from 'styled-components';
 import style from '../globals/style';
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: ${style.typography.fontFamily};
-    font-weight: 400; 
-  }
-`;
+import environment from '../utils/environment';
 
 const render = (id: string, component: JSX.Element) => {
   if (!id) {
@@ -27,10 +18,13 @@ const render = (id: string, component: JSX.Element) => {
   elem.id = '__VIT_PLUGIN__' + id;
   document.body.appendChild(elem);
 
+  if (!environment.isProduction) {
+    elem.style.fontFamily = `${style.typography.fontFamily}`
+  }
+
   const root = ReactDOM.createRoot(elem);
   root.render(
     <React.StrictMode>
-      <GlobalStyle />
       {component}
     </React.StrictMode>
   );
