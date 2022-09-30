@@ -10,8 +10,7 @@ const Content = styled.div`
   width: ${style.spacing.s40};
   height: ${style.spacing.s40};
   background-color: ${props => props.color};
-  border-radius: ${style.spacing.s32};
-  z-index: ${style.zIndex.fab}; 
+  border-radius: ${style.spacing.s32}; 
   box-shadow: rgb(0 0 0 / 8%) 0px 1px 8px 0px, rgb(0 0 0 / 3%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px 0px;
 
   @media only screen and (min-width: ${style.breakpoint.lg}) {
