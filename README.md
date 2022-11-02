@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+[![GitHub version](https://badge.fury.io/gh/riqra%2Fvit.svg)](https://badge.fury.io/gh/riqra%2Fvit)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
