@@ -4,7 +4,8 @@ interface iModalForImages {
   link?: string,
   imageWidth?: string,
   linkTarget?: '_blank' | '_self',
-  showAgainInXHours?: number
+  showAgainInXHours?: number,
+  showWhenLoggedIn?: boolean
 }
 
 export type {
