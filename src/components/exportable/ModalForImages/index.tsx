@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import cookie from '../../../utils/cookie';
+import session from '../../../utils/session';
 import Backdrop from '../../_atoms/Backdrop';
 import { iModalForImages } from './contracts';
 import {
@@ -15,7 +16,8 @@ const ModalForImages = ({
   link,
   imageWidth = '450px',
   linkTarget = '_self',
-  showAgainInXHours = 0
+  showAgainInXHours = 0,
+  showWhenLoggedIn = false
 }: iModalForImages) => {
   const [show, setShow] = useState(false);
 
@@ -30,9 +32,15 @@ const ModalForImages = ({
 
   useEffect(() => {
     if (!cookie.get(cookieName)) {
-      setShow(true);
+      if (showWhenLoggedIn) {
+        if (session.isLoggedIn()) {
+          setShow(true);
+        }
+      } else {
+        setShow(true);
+      }
     }
-  }, [cookieName])
+  }, [cookieName, showWhenLoggedIn])
 
   if (!show) {
     return <></>
