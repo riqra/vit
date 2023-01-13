@@ -5,17 +5,31 @@ const set = (cname: string, cvalue: any, hours: number) => {
   document.cookie = cname + "=" + encodeURIComponent(cvalue) + ";" + expires + ";path=/";
 }
 
-const get = (cname: string) => {
-  const name = cname + "=";
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const ca = decodedCookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) === ' ') {
-      c = c.substring(1);
+const get = (name: string, partial: boolean = false) => {
+  const decodedCookies = decodeURIComponent(document.cookie);
+  const cookiesArray = decodedCookies.split(';');
+  for (let cookie of cookiesArray) {
+    /* 
+      - The following split expects a string with this format: "cookieName=cookieValue"
+      - It will take into account just the first "=" to split
+    */
+    let [cookieName, cookieValue] = cookie.split(/=(.*)/s);
+    cookieName = cookieName.trim();
+
+    /*
+      - The following conditional allows to compare partially the cookie name 
+    */
+    if (partial) {
+      if (cookieName.includes(name)) {
+        return cookieValue;
+      }
     }
-    if (c.indexOf(name) === 0) {
-      return c.substring(name.length, c.length);
+
+    /*
+      - The following conditional compares the full cookie name 
+    */
+    if (cookieName === name) {
+      return cookieValue;
     }
   }
   return "";
