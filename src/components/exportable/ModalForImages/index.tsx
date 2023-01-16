@@ -33,7 +33,7 @@ const ModalForImages = ({
   useEffect(() => {
     if (!cookie.get(cookieName)) {
       if (showWhenLoggedIn) {
-        if (session.isLoggedIn()) {
+        if (session.loggedIn) {
           setShow(true);
         }
       } else {
