@@ -7,8 +7,8 @@ const set = (cname: string, cvalue: any, hours: number) => {
 
 const get = (name: string, partial: boolean = false) => {
   const decodedCookies = decodeURIComponent(document.cookie);
-  const cookiesArray = decodedCookies.split(';');
-  for (let cookie of cookiesArray) {
+  const cookies = decodedCookies.split(';');
+  for (let cookie of cookies) {
     /* 
       - The following split expects a string with this format: "cookieName=cookieValue"
       - It will take into account just the first "=" to split
