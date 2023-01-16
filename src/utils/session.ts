@@ -1,25 +1,17 @@
 import cookie from "./cookie";
+import json from "./json";
 
-interface SessionData {
-  token?: string | undefined,
-  role?: string | undefined
+interface iData {
+  role?: string
 }
 
-const data = (): SessionData => {
-  const session = cookie.get('session-v', true);
+const data: iData | undefined = json.safelyParse(decodeURIComponent(decodeURIComponent(cookie.get('session-v', true))));
 
-  if (session === '') {
-    return {};
-  }
-
-  return JSON.parse(decodeURIComponent(decodeURIComponent(cookie.get('session-v', true))))
-};
-
-const isLoggedIn = () => data().role === 'user';
+const loggedIn = (data?.role === 'user');
 
 const session = {
   data,
-  isLoggedIn
+  loggedIn
 }
 
 export default session;
